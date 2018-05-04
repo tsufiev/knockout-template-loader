@@ -6,7 +6,7 @@ function loaderFn(source) {
 
 	const options = utils.getOptions(this) || {};
 	const templateName = options.templateName || '[name]-[ext]';
-	const name = options.name || utils.interpolateName(this, templateName, options);
+	const name = this._module.rawRequest; // options.name || utils.interpolateName(this, templateName, options);
     const sourcePart = source.replace("module.exports", `module.exports = "${name}"; var htmlContent`);
 
 	return [
