@@ -1,6 +1,6 @@
 {
   "name": "@yandex-data-ui/knockout-template-loader",
-  "version": "2.3.0",
+  "version": "2.4.0",
   "description": "Knockout html template loader for webpack",
   "main": "lib/index.js",
   "author": "Archon Information Systems",
