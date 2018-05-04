@@ -4,10 +4,10 @@ const packageName = require('../package').name;
 function loaderFn(source) {
 	this.cacheable();
 
-	const sourcePart = source.replace("module.exports", "var htmlContent");
 	const options = utils.getOptions(this) || {};
 	const templateName = options.templateName || '[name]-[ext]';
 	const name = options.name || utils.interpolateName(this, templateName, options);
+    const sourcePart = source.replace("module.exports", `module.exports = "${name}"; var htmlContent`);
 
 	return [
 		"var ko = require('knockout');",
