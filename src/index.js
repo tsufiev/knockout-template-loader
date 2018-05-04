@@ -1,4 +1,5 @@
 const utils = require("loader-utils");
+const packageName = require('../package').name;
 
 function loaderFn(source) {
 	this.cacheable();
@@ -10,7 +11,7 @@ function loaderFn(source) {
 
 	return [
 		"var ko = require('knockout');",
-		"var stringTemplateEngine = require('knockout-template-loader/lib/string-template-engine');",
+		`var stringTemplateEngine = require('${packageName}/lib/string-template-engine');`,
 		sourcePart,
 		`ko.templates['${name}'] = htmlContent;`
 	].join("\n");
